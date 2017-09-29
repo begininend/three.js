@@ -36,8 +36,8 @@
 
 		<script src="../build/three.js"></script>
 		<script src="js/libs/dat.gui.min.js"></script>
-		<script src="js/Mirror.js"></script>
-		<script src="js/MirrorRTT.js"></script>
+		<script src="js/objects/Mirror.js"></script>
+		<script src="js/objects/MirrorRTT.js"></script>
 		<script src="js/controls/OrbitControls.js"></script>
 
 		<!-- NodeLibrary -->
@@ -229,7 +229,7 @@
 				sphereGroup.add( halfSphere );
 
 				var geometry = new THREE.IcosahedronGeometry( 5, 0 );
-				var material = new THREE.MeshPhongMaterial( { color: 0xffffff, emissive: 0x333333, shading: THREE.FlatShading } );
+				var material = new THREE.MeshPhongMaterial( { color: 0xffffff, emissive: 0x333333, flatShading: true } );
 				smallSphere = new THREE.Mesh( geometry, material );
 				scene.add(smallSphere);
 
@@ -305,8 +305,6 @@
 				smallSphere.rotation.z = timer * 0.8;
 
 				groundMirrorMaterial.updateFrame( delta );
-
-				cameraControls.update();
 
 				render();
 			}
